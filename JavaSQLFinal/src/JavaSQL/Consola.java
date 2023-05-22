@@ -80,13 +80,16 @@ public class Consola {
                     System.out.print("Ingrese el ID del prestamo: \n");
                     ps.setInt(2, tc.nextInt());
                     ps.setBoolean(1, false);
+                    
                     ps.executeUpdate();
                     System.out.println("Devolucion registrada con exito.\n\n");
                     break;
                 case 3:
                     ps = con.prepareStatement("SELECT * FROM Prestamos");
+                    
                     ResultSet rs = ps.executeQuery();
                     System.out.println("----PRESTAMOS----");
+                    
                     while(rs.next()){
                         System.out.println("PRESTAMO: "+rs.getString("id"));
                         System.out.println("ID Usuario: "+rs.getString("usuarioID"));
@@ -139,6 +142,7 @@ public class Consola {
                     ps = con.prepareStatement("UPDATE Usuarios SET nombre=?, apellido=?, "
                             + "tipo_identidad=?, numero_identidad=?, numero_celular=? WHERE id=?");
                     System.out.print("Ingrese el ID del usuario a actualizar: \n");
+                    
                     ps.setInt(6, tc.nextInt());
                     tc.nextLine();
                     System.out.print("Ingrese el nuevo nombre: \n");
@@ -152,6 +156,8 @@ public class Consola {
                     ps.setString(4, tc.nextLine());
                     System.out.print("Ingrese el nuevo numero de celular: \n");
                     ps.setString(5, tc.nextLine());
+                    
+                    
                     ps.executeUpdate();
                     System.out.println("Usuario actualizado con exito.\n\n");
                     break;
@@ -188,6 +194,7 @@ public class Consola {
                     System.out.print("Ingrese el id de genero: \n");
                     ps.setInt(6, tc.nextInt());
                     tc.nextLine();
+                    
                     ps.executeUpdate();
                     System.out.println("Libro ingresado con exito.\n\n");
                     break;
@@ -195,6 +202,7 @@ public class Consola {
                     ps = con.prepareStatement("DELETE FROM Libros WHERE id=?");
                     System.out.println("Ingrese el ID del libro:");
                     ps.setInt(1, tc.nextInt());
+                    
                     ps.executeUpdate();
                     System.out.println("Libro Eliminado con exito.\n\n");
                     break;
@@ -206,7 +214,6 @@ public class Consola {
             System.out.println(e);
         }
     }
-    
     
     public static String imprimir_menu(int op){
         //0.Menu, 1.Operaciones Libros, 2.Operaciones Usuarios, 3.Operaciones Prestamos
@@ -243,12 +250,6 @@ public class Consola {
             
             String consulta = "SELECT name FROM master.dbo.sysdatabases";
             ResultSet resultado = sql.executeQuery(consulta);
-            
-            while(resultado.next()){
-                bases += resultado.getString(1)+"\n";
-            }
-            
-            System.out.println(bases);
             return true;
         } 
         catch (SQLException e) {
