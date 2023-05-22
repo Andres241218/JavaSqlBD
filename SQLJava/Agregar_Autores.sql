@@ -1,0 +1,1 @@
+INSERT INTO AUTORES (nombre,apellido) VALUES ('Miguel Jose','Saavedra'),('Victor Hugo','Andrade'),('Federico','Garcia'),('Ernest','Hemingway'),('Jose','Alvarez'),('Maria Jose','Perez')

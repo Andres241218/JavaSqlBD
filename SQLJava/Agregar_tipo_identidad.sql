@@ -1,0 +1,1 @@
+INSERT INTO TIPO_IDENTIDAD (tipo) VALUES ('Tarjeta de Identidad'),('Cedula (C.C)')

@@ -1,0 +1,1 @@
+INSERT INTO EDITORIALES (nombre) VALUES ('Mirahadas'),('Sexto Piso'),('Errata Naturae')
